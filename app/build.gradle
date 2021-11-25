@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "br.gov.mt.saude.cuiaba.e_patrimonio"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion '28.0.3'
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    // google mobile vision
+    implementation 'com.google.android.gms:play-services-vision:17.0.2'
+    // barcode reader
+    implementation 'info.androidhive:barcode-reader:1.1.5'
+    //noinspection GradleCompatible
+    implementation 'com.android.support:appcompat-v7:28.0.0-rc02'
+    implementation 'com.android.support:animated-vector-drawable:28.0.0-rc02'
+    implementation 'com.android.support:cardview-v7:28.0.0-rc02'
+    implementation 'com.google.zxing:core:3.3.3'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    implementation 'br.com.jansenfelipe:androidmask:1.0.1'
+    implementation 'com.mobsandgeeks:android-saripaar:2.0.3'
+    implementation 'com.google.guava:guava:24.1-android'
+    implementation 'com.google.dagger:dagger:2.15'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:design:28.0.0-rc02'
+    implementation 'com.android.support:support-v4:28.0.0'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.15'
+    implementation 'com.google.dagger:dagger-android:2.15'
+    // If you're using classes in dagger.android
+    implementation 'com.google.dagger:dagger-android-support:2.15'
+    // if you use the support libraries
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.15'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation 'android.arch.lifecycle:viewmodel:1.1.1'
+    implementation 'android.arch.lifecycle:livedata:1.1.1'
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+    implementation 'cn.pedant.sweetalert:library:1.3'
+    implementation 'com.github.clans:fab:1.6.4'
+    implementation 'com.weiwangcn.betterspinner:library:1.1.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.king.zxing:zxing-lite:1.0.6'
+    implementation 'pub.devrel:easypermissions:2.0.1'
+    implementation 'com.github.miguelbcr:TableFixHeaders-Wrapper:0.2.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}

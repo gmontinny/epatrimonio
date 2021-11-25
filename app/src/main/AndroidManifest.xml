@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="br.gov.mt.saude.cuiaba.e_patrimonio">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label,android:icon">
+        <activity android:name=".ui.active.EnviarActivity"></activity>
+        <!-- Principal Screen -->
+        <activity
+            android:name=".ui.active.PrincipalActivity"
+            android:label="@string/title_activity_principal"
+            android:theme="@style/AppTheme.NoActionBar" /> <!-- Splash Screen -->
+        <activity
+            android:name=".ui.active.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity> <!-- Login Screen -->
+        <activity
+            android:name=".ui.active.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme" /> <!-- Sincronizar -->
+        <activity
+            android:name=".ui.active.SincronizarActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.active.EasyCaptureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.active.CustomCaptureActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

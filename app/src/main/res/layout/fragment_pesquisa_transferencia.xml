@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.PesquisaTransferenciaFragment">
+
+    <RadioGroup
+        android:id="@+id/rdGrupoTransferencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/rdbPatrimonioTransferencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/colorPrimaryDark"
+            android:padding="@dimen/_10dp"
+            android:text="N° Patrimônio"
+            android:textColor="@color/colorPrimaryDark"
+            android:theme="@style/RadioButton"
+            android:textSize="@dimen/_20sp"
+            />
+
+        <RadioButton
+            android:id="@+id/rdbSerialTransferencia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/colorPrimaryDark"
+            android:padding="@dimen/_10dp"
+            android:text="N° Serial"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_20sp"
+            />
+
+    </RadioGroup>
+
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/edtPesquisaTransferencia"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/border"
+        android:drawableRight="@drawable/ic_search_green_600_24dp"
+        android:hint="Pesquisar Transferência"
+        android:paddingLeft="@dimen/_10dp"
+        android:paddingRight="@dimen/_10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rdGrupoTransferencia" />
+
+
+    <com.inqbarna.tablefixheaders.TableFixHeaders
+        android:id="@+id/tableTransferencia"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtPesquisaTransferencia" />
+
+</android.support.constraint.ConstraintLayout>

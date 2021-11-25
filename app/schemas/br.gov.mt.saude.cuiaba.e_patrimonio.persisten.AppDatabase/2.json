@@ -1,0 +1,585 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "f19a51699324d24e3beeb995fe20a2d5",
+    "entities": [
+      {
+        "tableName": "usuario",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idusuario` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nomusuario` TEXT NOT NULL, `senusuario` TEXT NOT NULL, `cpfusuario` TEXT NOT NULL, `emailusuario` TEXT NOT NULL, `imagemusuario` TEXT, `statususuario` INTEGER NOT NULL, `tipousuario` INTEGER NOT NULL, `datausuario` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "idusuario",
+            "columnName": "idusuario",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomusuario",
+            "columnName": "nomusuario",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "senusuario",
+            "columnName": "senusuario",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cpfusuario",
+            "columnName": "cpfusuario",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "emailusuario",
+            "columnName": "emailusuario",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imagemusuario",
+            "columnName": "imagemusuario",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "statususuario",
+            "columnName": "statususuario",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipousuario",
+            "columnName": "tipousuario",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "datausuario",
+            "columnName": "datausuario",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idusuario"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "baixa",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idbaixa` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `databaixa` TEXT, `horabaixa` TEXT, `idusario` INTEGER NOT NULL, `idpatrimonio` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "idbaixa",
+            "columnName": "idbaixa",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "databaixa",
+            "columnName": "databaixa",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "horabaixa",
+            "columnName": "horabaixa",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "idusario",
+            "columnName": "idusario",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idpatrimonio",
+            "columnName": "idpatrimonio",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idbaixa"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "fornecedor",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idfornecedor` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `razaosocial` TEXT NOT NULL, `nomefantasia` TEXT NOT NULL, `cnpjfornecedor` TEXT NOT NULL, `enderecofornecedor` TEXT NOT NULL, `bairrofornecedor` TEXT NOT NULL, `emailfornecedor` TEXT NOT NULL, `telefonefornecedor` TEXT, `celularfornecedor` TEXT, `contatofornecedor` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "idfornecedor",
+            "columnName": "idfornecedor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "razaosocial",
+            "columnName": "razaosocial",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomefantasia",
+            "columnName": "nomefantasia",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cnpjfornecedor",
+            "columnName": "cnpjfornecedor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "enderecofornecedor",
+            "columnName": "enderecofornecedor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bairrofornecedor",
+            "columnName": "bairrofornecedor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "emailfornecedor",
+            "columnName": "emailfornecedor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "telefonefornecedor",
+            "columnName": "telefonefornecedor",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "celularfornecedor",
+            "columnName": "celularfornecedor",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "contatofornecedor",
+            "columnName": "contatofornecedor",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idfornecedor"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_fornecedor_cnpjfornecedor",
+            "unique": true,
+            "columnNames": [
+              "cnpjfornecedor"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_fornecedor_cnpjfornecedor` ON `${TABLE_NAME}` (`cnpjfornecedor`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "grupo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idgrupo` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `descgrupo` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "idgrupo",
+            "columnName": "idgrupo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descgrupo",
+            "columnName": "descgrupo",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idgrupo"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "local",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idlocal` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `desclocal` TEXT NOT NULL, `idsetor` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "idlocal",
+            "columnName": "idlocal",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "desclocal",
+            "columnName": "desclocal",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idsetor",
+            "columnName": "idsetor",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idlocal"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "marca",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idmarca` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `descmarca` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "idmarca",
+            "columnName": "idmarca",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descmarca",
+            "columnName": "descmarca",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idmarca"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "material",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idmaterial` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `idsubgrupo` INTEGER NOT NULL, `descmaterial` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "idmaterial",
+            "columnName": "idmaterial",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idsubgrupo",
+            "columnName": "idsubgrupo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descmaterial",
+            "columnName": "descmaterial",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idmaterial"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "modelo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idmodelo` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `idmarca` INTEGER NOT NULL, `descmodelo` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "idmodelo",
+            "columnName": "idmodelo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idmarca",
+            "columnName": "idmarca",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descmodelo",
+            "columnName": "descmodelo",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idmodelo"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "patrimonio",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idpatrimonio` TEXT NOT NULL, `idmaterial` INTEGER NOT NULL, `idmodelo` INTEGER NOT NULL, `idlocal` INTEGER NOT NULL, `idfornecedor` INTEGER NOT NULL, `numeroarquivo` INTEGER NOT NULL, `situacaopatrimonio` INTEGER NOT NULL, `serialpatrimonio` TEXT, `statusbaixa` INTEGER NOT NULL, `obspatrimonio` TEXT, PRIMARY KEY(`idpatrimonio`))",
+        "fields": [
+          {
+            "fieldPath": "idpatrimonio",
+            "columnName": "idpatrimonio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idmaterial",
+            "columnName": "idmaterial",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idmodelo",
+            "columnName": "idmodelo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idlocal",
+            "columnName": "idlocal",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idfornecedor",
+            "columnName": "idfornecedor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "numeroarquivo",
+            "columnName": "numeroarquivo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "situacaopatrimonio",
+            "columnName": "situacaopatrimonio",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "serialpatrimonio",
+            "columnName": "serialpatrimonio",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "statusbaixa",
+            "columnName": "statusbaixa",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "obspatrimonio",
+            "columnName": "obspatrimonio",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idpatrimonio"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_patrimonio_idpatrimonio",
+            "unique": true,
+            "columnNames": [
+              "idpatrimonio"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_patrimonio_idpatrimonio` ON `${TABLE_NAME}` (`idpatrimonio`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "secretaria",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idsecretaria` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nomsecretaria` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "idsecretaria",
+            "columnName": "idsecretaria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomsecretaria",
+            "columnName": "nomsecretaria",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idsecretaria"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "setor",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idsetor` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `idsecretaria` INTEGER NOT NULL, `nomsetor` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "idsetor",
+            "columnName": "idsetor",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idsecretaria",
+            "columnName": "idsecretaria",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nomsetor",
+            "columnName": "nomsetor",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idsetor"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "subgrupo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idsubgrupo` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `idgrupo` INTEGER NOT NULL, `descsubgrupo` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "idsubgrupo",
+            "columnName": "idsubgrupo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idgrupo",
+            "columnName": "idgrupo",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "descsubgrupo",
+            "columnName": "descsubgrupo",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idsubgrupo"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "transferencia",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idtransferencia` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `idsetororigem` INTEGER NOT NULL, `idsetordestino` INTEGER NOT NULL, `idpatrimonio` TEXT NOT NULL, `datatransferencia` TEXT NOT NULL, `horatransferencia` TEXT NOT NULL, `idusuario` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "idtransferencia",
+            "columnName": "idtransferencia",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idsetororigem",
+            "columnName": "idsetororigem",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idsetordestino",
+            "columnName": "idsetordestino",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idpatrimonio",
+            "columnName": "idpatrimonio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "datatransferencia",
+            "columnName": "datatransferencia",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "horatransferencia",
+            "columnName": "horatransferencia",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "idusuario",
+            "columnName": "idusuario",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "idtransferencia"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"f19a51699324d24e3beeb995fe20a2d5\")"
+    ]
+  }
+}
